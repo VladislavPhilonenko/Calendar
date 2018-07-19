@@ -4,6 +4,6 @@ import { fetchUserDataRequest } from 'actions';
 
 const mapDispatchToProps = {
   fetchUserData: fetchUserDataRequest
-}
+};
 
 export default connect(null, mapDispatchToProps)(Login);

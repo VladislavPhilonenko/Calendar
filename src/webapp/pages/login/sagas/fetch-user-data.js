@@ -10,10 +10,10 @@ import {
   fetchUserDataSuccess
  } from 'actions';
 import { FETCH_USER_DATA_REQUEST } from 'constants';
-import { push } from 'connected-react-router'
+import { push } from 'connected-react-router';
 
-const getUserData = (payload) => {
-  return fetch(
+const getUserData = payload => 
+  fetch(
     '/api/user',
     {
       method: 'POST',
@@ -21,12 +21,14 @@ const getUserData = (payload) => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(payload)
-    }).then(response => response.json());
-}
+    })
+  .then(response => response.json());
 
 export function* fetchUserData({ payload }) {
   try {
     const userData = yield call(getUserData, payload);
+
+    sessionStorage.setItem('id', userData.id);
 
     yield put(fetchUserDataSuccess(userData));
     yield put(push('/calendar'));

@@ -2,21 +2,19 @@ import React, { Component } from 'react';
 import classnames from 'classnames';
 import { InputField } from 'react-components/input-field';
 import { SubmitButton } from 'react-components/submit-button';
-import { Link } from 'react-router-dom';
 
 export class Login extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      name: '',
-      password: ''
-    }
+  state = {
+    name: '',
+    password: ''
   }
 
   sendRequest = e => {
-    e.preventDefault(); 
-    this.props.fetchUserData({ name: this.state.name, password: this.state.password });
+    e.preventDefault();
+    
+    const { name, password } = this.state;
+
+    this.props.fetchUserData({ name, password });
   }
 
   setName = e => {
@@ -49,7 +47,6 @@ export class Login extends Component {
           value={ 'Submit' }
           sendRequest={ this.sendRequest }
         />
-        <Link to='/calendar'>Home</Link>
       </form>
     )
   }

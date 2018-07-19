@@ -11,17 +11,18 @@ import {
  } from 'actions';
 import { ADD_TASK } from 'constants';
 
-const addUserTask = payload => {
-  return fetch(
-    '/api/addTask',
+const addUserTask = payload => 
+  fetch(
+    '/api/add-task',
     {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(payload)
-    }).then(response => response.json());
-}
+    })
+  .then(response => response.json());
+
 
 export function* getUserTasks({ payload }) {
   try {

@@ -25,7 +25,17 @@ app.post('/api/user', jsonParser, (req, res) => {
     .catch(err => res.send(err))
 });
 
-app.put('/api/addTask', jsonParser, (req, res) => {
+app.post('/api/user-by-id', jsonParser, (req, res) => {
+  if (!req.body) {
+    return res.sendStatus(400);
+  }
+
+  dbManager.getUserById(req.body.id)
+    .then(data => res.send(data))
+    .catch(err => res.send(err))
+});
+
+app.put('/api/add-task', jsonParser, (req, res) => {
   if (!req.body) {
     return res.sendStatus(400);
   }
@@ -35,7 +45,7 @@ app.put('/api/addTask', jsonParser, (req, res) => {
     .catch(err => res.send(err));
 });
 
-app.delete('/api/deleteTask', jsonParser, (req, res) => {
+app.delete('/api/delete-task', jsonParser, (req, res) => {
   if (!req.body) {
     return res.sendStatus(400);
   }

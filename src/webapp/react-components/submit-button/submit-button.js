@@ -10,6 +10,8 @@ export const SubmitButton = ({
     <button 
       className={ classnames() } 
       onClick={ sendRequest }
-    >{ value }</button>
+    >
+      { value }
+    </button>
   )
 };

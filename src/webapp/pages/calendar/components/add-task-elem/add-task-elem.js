@@ -4,26 +4,28 @@ import { SubmitButton } from 'react-components/submit-button';
 import './add-task-elem.css';
 
 export class AddTaskElem extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      title: '',
-      start: '',
-      duration: ''
-    }
+  state = {
+    title: '',
+    start: '',
+    duration: ''
   }
 
   sendRequest = e => {
     e.preventDefault();
 
+    const {
+      title,
+      start,
+      duration
+    } = this.state;
+
     this.props.addTask({
       id: this.props.userId,
       task: {
         id: Date.now(),
-        title: this.state.title, 
-        start: this.state.start, 
-        duration: this.state.duration
+        title, 
+        start, 
+        duration
       } 
     });
   }

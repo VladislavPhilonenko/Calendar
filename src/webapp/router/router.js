@@ -12,7 +12,7 @@ import { NotFoundPage } from 'pages/not-found';
 
 export const Root = ({ store, history }) => (
   <Provider store={ store }>
-    <ConnectedRouter history={history}>
+    <ConnectedRouter history={ history }>
       <div>
         <Switch>
           <Redirect exact from='/' to='/login' />
@@ -23,17 +23,4 @@ export const Root = ({ store, history }) => (
       </div>
     </ConnectedRouter>
   </Provider>
-)
-
-// export const Root = ({ store, history }) => (
-//   <Provider store={ store }>
-//     <Router history={ history }>
-//       <Switch>
-//         <Redirect exact from='/' to='/login' />
-//         <Route path='/login' component={ Login } />
-//         <Route path='/calendar' component={ Calendar } />
-//         <Route component={ NotFoundPage } />
-//       </Switch>
-//     </Router>
-//   </Provider>
-// )
+);

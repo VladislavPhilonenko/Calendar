@@ -1,5 +1,4 @@
 const path = require('path');
-const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
@@ -69,12 +68,6 @@ module.exports = {
       filename: 'index.html',
       inject: 'body'
     }),
-    new CleanWebpackPlugin(['dist']),
-    new webpack.HotModuleReplacementPlugin()
-  ],
-  devServer: {
-    historyApiFallback: true,
-    port: 4000,
-    hot: true
-  }
+    new CleanWebpackPlugin(['dist'])
+  ]
 };

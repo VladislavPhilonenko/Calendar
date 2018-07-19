@@ -17,7 +17,9 @@ export const InputField = ({
           <label 
             className={ classnames() }
             htmlFor={ inputId }
-          >{ label }</label>
+          >
+            { label }
+          </label>
       }
       <input
         className={ classnames() }
@@ -30,4 +32,4 @@ export const InputField = ({
       />
     </div>
   )
-}
+};

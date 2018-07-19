@@ -12,35 +12,45 @@ export const HalfDayElem = ({
        time.map((item, i) => (
           item.halfAnHour
           ? (
-            <div key={ i } className="one-hour-elem">
-              <div className="start-hour">{ item.hour }</div>
-              <div className="half-past-hour">{ item.halfAnHour }</div>
-            </div>
+              <div key={ i } className="one-hour-elem">
+                <div className="start-hour">{ item.hour }</div>
+                <div className="half-past-hour">{ item.halfAnHour }</div>
+              </div>
             )
           : (
-            <div key={ i } className="one-hour-elem">
-              <div className="start-hour">{ item.hour }</div>
-            </div>
+              <div key={ i } className="one-hour-elem">
+                <div className="start-hour">{ item.hour }</div>
+              </div>
             )
        ))
       }
     </div>
     <ul className="tasks">
       { tasks.map(task => (
-          <li key={ task.id }
-              title={ task.title }
-              className="task" 
-              style={{ 
-                      height: task.duration, 
-                      width: task.width, 
-                      marginLeft: task.marginLeft, 
-                      marginTop: task.start
-                    }}>
+          <li 
+            key={ task.id }
+            title={ task.title }
+            className="task" 
+            style={ {
+              height: task.duration, 
+              width: task.width, 
+              marginLeft: task.marginLeft, 
+              marginTop: task.start
+            } }>
+              {
+                task.title
+                ? (
                     <button 
-                    className="delete-task-button" 
-                    data-id={ task.id } 
-                    onClick={ deleteTask }>X</button>
-                    { task.title }</li>
+                      className="delete-task-button" 
+                      onClick={ () => deleteTask(task.id) }
+                    >
+                      X
+                    </button>
+                  )
+                : null
+              }
+              { task.title }
+          </li>
         ))
       }
     </ul>

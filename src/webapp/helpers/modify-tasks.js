@@ -5,7 +5,7 @@ const compareCrossing = (task, taskGroup) => taskGroup.filter(item => (
   (task.start + task.duration) >= item.start ||
   task.start >= item.start &&
   (item.start + item.duration) >= task.start
-))
+));
 
 const groupCrossedTasks = tasks => {
   const sortedTasks = sortTasksByStart(tasks);
@@ -15,7 +15,7 @@ const groupCrossedTasks = tasks => {
 
     return obj;
   }, {});
-}
+};
 
 const modifyTasksForGroups = groups => {
   const modifiedTasks = [];
@@ -89,7 +89,7 @@ const modifyTasksForGroups = groups => {
   });
 
   return modifiedTasks;
-}
+};
 
 const removeDuplicatedGroups = groupedTasksAsArr => {
   const groupedTasksAsArrCopy = [].concat(groupedTasksAsArr);
@@ -120,7 +120,7 @@ const removeDuplicatedGroups = groupedTasksAsArr => {
   }, groupedTasksAsArrCopy)
 
   return markedTaskGroups.filter(elem => elem[0] !== 'undefined');
-}
+};
 
 const getMaxGroupLength = groups => groups.reduce((maxLength, group) => {
     return group[1].length > maxLength
@@ -239,7 +239,7 @@ const modifyTasks = tasks => {
   }, state);
 
   return modifiedTasks;
-}
+};
 
 const modifyAMTasks = tasks => tasks.map(task => ({
   ...task, 
@@ -261,6 +261,7 @@ export const splitTasks = tasks => {
 
   between.forEach(item => {
     const amDuration = oneOclock - item.start - 1;
+    const pmDuration = item.duration - amDuration;
 
     const amTask = { 
       id: item.id,
@@ -269,12 +270,18 @@ export const splitTasks = tasks => {
       title: item.title
     };
 
-    const pmTask = { 
-      id: item.id,
-      start: oneOclock,
-      duration: item.duration, 
-      title: item.title
-    };
+    const pmTask = pmDuration > 6
+      ? ({ 
+        id: item.id,
+        start: oneOclock,
+        duration: pmDuration, 
+        title: item.title
+      })
+      : ({ 
+        id: item.id,
+        start: oneOclock,
+        duration: pmDuration
+      })
 
     pm.push(pmTask);
     am.push(amTask);
@@ -287,4 +294,4 @@ export const splitTasks = tasks => {
     am: modifyTasks(modifiedAMTasks),
     pm: modifyTasks(modifiedPMTasks)
   }
-}
+};

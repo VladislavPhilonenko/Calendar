@@ -22,9 +22,9 @@ export const store = createStore(
     applyMiddleware(
       routerMiddleware(history),
       sagaMiddleware
-    ),
-  ),
-)
+    )
+  )
+);
 
 window.store = store;
 sagaMiddleware.run(rootSaga);

@@ -11,19 +11,19 @@ import {
  } from 'actions';
 import { DELETE_TASK } from 'constants';
 
-const deleteUserTask = payload => {
-  return fetch(
-    '/api/deleteTask',
+const deleteUserTask = payload => 
+  fetch(
+    '/api/delete-task',
     {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(payload)
-    }).then(response => response.json());
-}
+    })
+  .then(response => response.json());
 
-export function* getUserTasksAfterDeleting({ payload }) {
+export function* getUserTasks({ payload }) {
   try {
     const taskData = yield call(deleteUserTask, payload);
     const tasks = taskData.filter(item => item !== null);
@@ -35,7 +35,7 @@ export function* getUserTasksAfterDeleting({ payload }) {
 }
 
 function* watchFetchUserData() {
-  yield takeEvery(DELETE_TASK, getUserTasksAfterDeleting);
+  yield takeEvery(DELETE_TASK, getUserTasks);
 }
 
 export default function* () {

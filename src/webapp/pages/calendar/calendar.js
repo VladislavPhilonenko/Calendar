@@ -49,34 +49,44 @@ const PM_TIME = [
 ]
 
 export class Calendar extends Component {
-  constructor(props) {
-    super(props);
+  componentDidMount() {
+    if (!this.props.amTasks.length && !this.props.pmTasks.length) {
+      const userId = sessionStorage.getItem('id');
+
+      this.props.fetchUserDataById(userId);
+    }
   }
 
-  deleteUserTask = e => {
-    e.preventDefault();
-
+  deleteUserTask = taskId => {
     this.props.deleteTask({ 
       id: this.props.userId, 
-      taskId: +e.target.dataset.id 
+      taskId 
     });
   }
 
   render() {
+    const {
+      userName,
+      navigateToLoginPage,
+      amTasks,
+      pmTasks
+    } = this.props;
+    
     return (
       <div>
         <Header 
-          userName={ this.props.userName }
+          userName={ userName }
+          navigateToLoginPage={ navigateToLoginPage }
         />
         <div className="calendar-main">
           <HalfDayElem
             time={ AM_TIME }
-            tasks={ this.props.amTasks }
+            tasks={ amTasks }
             deleteTask={ this.deleteUserTask }
           />
           <HalfDayElem 
             time={ PM_TIME }
-            tasks={ this.props.pmTasks }
+            tasks={ pmTasks }
             deleteTask={ this.deleteUserTask }
           />
         </div>
