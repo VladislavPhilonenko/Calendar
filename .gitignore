@@ -1,0 +1,13 @@
+# Directories #
+/build/
+build/
+node/
+node_modules
+
+*.log
+
+#Visual Studio#
+.vscode
+
+# Else
+package-lock.json

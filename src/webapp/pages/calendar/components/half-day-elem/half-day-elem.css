@@ -1,0 +1,67 @@
+.half-day-elem {
+  display: flex;
+  width: 250px;
+  margin: 0 50px;
+}
+
+.one-hour-elem {
+  position: relative;
+  height: 180px;
+}
+.one-hour-elem:before {
+  content: '';
+  position: absolute;
+  z-index: 10;
+  width: 250px;
+  border-top: 1px solid grey;
+}
+
+.times {
+  width: 40px;
+  font: normal 16px/1 'OpenSans';
+}
+
+.start-hour {
+  text-align: center;
+}
+
+.half-past-hour {
+  margin-top: 75px;
+  font-size: 12px;
+  text-align: center;
+}
+
+.tasks {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  overflow: hidden;
+  width: 200px;
+  margin: 0;
+  margin-left: 10px;
+  padding: 0;
+}
+
+.task {
+  position: absolute;
+  z-index: 100;
+  overflow: hidden;
+  border-left: 3px solid #6E9ECF;
+  background-color: #E2ECF5;
+  font: normal 14px/1 'OpenSans';
+  list-style-type: none;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.delete-task-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 5px 10px;
+  border: 0;
+  background: #6E9ECF;
+  color: white;
+  font-size: 13px;
+  cursor: pointer;
+}
