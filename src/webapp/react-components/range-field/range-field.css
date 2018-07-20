@@ -1,0 +1,59 @@
+.range-field {
+  width: 100%;
+  margin: 28px 0 8px;
+  background: transparent;
+  -webkit-appearance: none;
+}
+
+.range-field:focus {
+  outline: none;
+}
+
+.range-field::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 8px;
+  border-radius: 50px;
+  background: #E2ECF5;
+  cursor: pointer;
+}
+
+.range-field::-webkit-slider-thumb {
+  height: 20px;
+  width: 20px;
+  margin-top: -6px;
+  border-radius: 50px;
+  background: #6E9ECF;
+  box-shadow: 1px 1px 1px #6E9ECF, 0px 0px 1px #E2ECF5;
+  cursor: pointer;
+  -webkit-appearance: none;
+}
+
+.range-field::-moz-range-track {
+  width: 100%;
+  height: 8px;
+  border-radius: 50px;
+  background: #3071a9;
+  cursor: pointer;
+}
+
+.range-field::-moz-range-thumb {
+  height: 20px;
+  width: 20px;
+  margin-top: -5px;
+  border-radius: 50px;
+  background: #6E9ECF;
+  box-shadow: 1px 1px 1px #6E9ECF, 0px 0px 1px #E2ECF5;
+  cursor: pointer;
+}
+
+.range-field-form-group {
+  margin-bottom: 20px;
+}
+
+.range-field-label {
+  font: normal 16px 'OpenSans';
+}
+
+.range-field-displayed-value {
+  font: normal 16px 'OpenSans';
+}

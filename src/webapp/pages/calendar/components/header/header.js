@@ -1,18 +1,20 @@
 import React, { Component } from 'react';
 import { AddTaskElem } from '../add-task-elem';
+import { SubmitButton } from 'react-components/submit-button';
 import './header.css';
 
 export class Header extends Component {
   state = {
-    isAddTaskElemOpened: false
+    isAddTaskElementOpened: false
   }
 
-  showAddTaskElem = () => {
-    this.setState({ isAddTaskElemOpened: true })
+  showAddTaskElement = () => {
+    this.setState({ isAddTaskElementOpened: true })
   }
 
-  hideAddTaskElem = () => {
-    this.setState({ isAddTaskElemOpened: false })
+  hideAddTaskElement = e => {
+    e.preventDefault();
+    this.setState({ isAddTaskElementOpened: false })
   }
 
   logOut = () => {
@@ -24,17 +26,24 @@ export class Header extends Component {
     return (
       <div className="calendar-header">
         {
-          this.state.isAddTaskElemOpened
-            ? (
-                <div>
-                  <button onClick={ this.hideAddTaskElem }>X</button>
-                  <AddTaskElem />
-                </div>
-              )
-            : <button onClick={ this.showAddTaskElem }>Add Task</button>
+          this.state.isAddTaskElementOpened
+            ? <AddTaskElem
+                closeAddTaskForm={ this.hideAddTaskElement }
+              />
+            : <SubmitButton
+                styles={ 'add-task' }
+                value={ 'Add Task' }
+                sendRequest={ this.showAddTaskElement }
+              />
         }
-        <span>{ this.props.userName }</span>
-        <button onClick={ this.logOut }>Log Out</button>
+        <div className="user-data">
+          <h3 className="login-title">You are logged in as { this.props.userName }</h3>
+          <SubmitButton
+            styles={ 'log-out' }
+            value={ 'Log Out' }
+            sendRequest={ this.logOut }
+          />
+        </div>
       </div>
     )
   }

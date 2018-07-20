@@ -1,0 +1,24 @@
+.add-task-form {
+  width: 310px;
+  padding: 20px 15px;
+  border: 2px solid white;
+  background-color: #b7cfe7;
+}
+
+.add-task-form-button {
+  margin-right: 10px;
+  padding: 5px 10px;
+  border: 2px solid white;
+  background-color: #6E9ECF;
+  font: normal 16px 'OpenSans';
+  color: white;
+}
+
+.error-message {
+  margin-top: 20px;
+  font: normal 16px 'OpenSans';
+  padding: 10px;
+  border: 2px solid #ca2323;
+  color: #ca2323;
+  background-color: #ff000021;
+}

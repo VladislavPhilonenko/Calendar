@@ -1,33 +1,32 @@
 import React from 'react';
-import classnames from 'classnames';
 import './input-field.css';
 
 export const InputField = ({
   label = false,
   inputId,
-  type,
+  type = 'text',
   placeholder,
   min,
   max,
   changeValue
 }) => {
   return (
-    <div className={ classnames() }>
+    <div className="input-field-from-group">
       { label && 
           <label 
-            className={ classnames() }
+            className="input-field-title"
             htmlFor={ inputId }
           >
             { label }
           </label>
       }
       <input
-        className={ classnames() }
+        className="input-field"
         type={ type }
         id={ inputId }
         placeholder={ placeholder }
-        minLength={ min }
-        maxLength={ max }
+        min={ min }
+        max={ max }
         onChange={ changeValue }  
       />
     </div>

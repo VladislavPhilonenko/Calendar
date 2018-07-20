@@ -1,0 +1,16 @@
+.input-field-title {
+  display: block;
+  margin-bottom: 20px;
+  font: normal 16px "OpenSans";
+}
+
+.input-field-from-group {
+  margin-bottom: 20px;
+}
+
+.input-field {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #6E9ECF;
+  font: normal 16px "OpenSans";
+}

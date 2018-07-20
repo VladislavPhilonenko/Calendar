@@ -1,0 +1,35 @@
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 50px;
+  padding: 30px 20px;
+  background-color: #6E9ECF;
+}
+
+.add-task {
+  padding: 10px 15px;
+  border: 2px solid white;
+  background-color: #b7cfe7;
+  font: normal 14px 'OpenSans';
+  text-transform: uppercase;
+}
+
+.user-data {
+  display: flex;
+  align-items: center;
+}
+
+.login-title {
+  font: normal 16px "OpenSans";
+  color: white;
+}
+
+.log-out {
+  padding: 10px 15px;
+  margin-left: 20px;
+  border: 2px solid white;
+  background-color: #b7cfe7;
+  font: normal 14px 'OpenSans';
+  text-transform: uppercase;
+}

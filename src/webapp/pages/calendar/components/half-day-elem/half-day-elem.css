@@ -43,25 +43,29 @@
 }
 
 .task {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
   position: absolute;
   z-index: 100;
-  overflow: hidden;
   border-left: 3px solid #6E9ECF;
   background-color: #E2ECF5;
-  font: normal 14px/1 'OpenSans';
   list-style-type: none;
-  white-space: nowrap;
-  text-overflow: ellipsis;
 }
 
 .delete-task-button {
-  position: absolute;
-  top: 0;
-  right: 0;
-  padding: 8px 12px;
+  width: 20px;
   border: 0;
   background: #6E9ECF;
   color: white;
   font-size: 14px;
   cursor: pointer;
+}
+
+.task-title {
+  margin: 5px;
+  overflow: hidden;
+  font: normal 14px/1 'OpenSans';
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }

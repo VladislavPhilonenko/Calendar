@@ -37,6 +37,7 @@ export const HalfDayElem = ({
               marginLeft: task.marginLeft, 
               marginTop: task.start
             } }>
+              <h3 className="task-title">{ task.title }</h3>
               {
                 task.title
                 ? (
@@ -49,7 +50,6 @@ export const HalfDayElem = ({
                   )
                 : null
               }
-              { task.title }
           </li>
         ))
       }
