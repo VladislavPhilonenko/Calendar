@@ -1,8 +1,8 @@
 ## DATABASE STRUCTURE
--database url - `mongodb://localhost:27017/`
--database name - `Calendar`
--collection name - `users`
--document structure:
+ - database url - `mongodb://localhost:27017/`
+ - database name - `Calendar`
+ - collection name - `users`
+ - document structure:
 1. `_id` type - ObjectId
 2. `name` type - String
 3. `password` type - String
