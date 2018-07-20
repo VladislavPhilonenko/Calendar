@@ -66,9 +66,8 @@ const modifyTasksForGroups = groups => {
     return margin + width;
   }, 0);
 
-
   groupTasks.forEach(group => {
-    const marginStart = allConnectors.reduce((margin, task) => {
+    const marginStart = group.reduce((margin, task) => {
       return groupObj[task.id]
         ? margin + width
         : margin;
@@ -138,7 +137,7 @@ const modifyTasks = tasks => {
     connectors: []
   };
 
-  const test = groupsWithoutDuplicates.reduce(({ groups, connectors }, group, i) => {
+  groupsWithoutDuplicates.reduce(({ groups, connectors }, group, i) => {
     const tasks = group[1];
 
     if (tasks.length === 1 && !groups.length) {
@@ -192,11 +191,7 @@ const modifyTasks = tasks => {
         }; 
       }
 
-      if (tasks.length > groupsWithoutDuplicates[i + 1][1].length) {
-        connectors.push(group);
-      } else {
-        groups.push(group);
-      }
+      groups.push(group);
 
       return {
         groups,
@@ -247,8 +242,6 @@ const modifyTasks = tasks => {
       connectors
     };
   }, state);
-
-  console.log(test);
 
   return modifiedTasks;
 };
