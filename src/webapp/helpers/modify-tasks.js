@@ -138,7 +138,7 @@ const modifyTasks = tasks => {
     connectors: []
   };
 
-  groupsWithoutDuplicates.reduce(({ groups, connectors }, group, i) => {
+  const test = groupsWithoutDuplicates.reduce(({ groups, connectors }, group, i) => {
     const tasks = group[1];
 
     if (tasks.length === 1 && !groups.length) {
@@ -182,10 +182,20 @@ const modifyTasks = tasks => {
     }
 
     if (!groups.length) {
-      groups.push(group);
-
       if (!groupsWithoutDuplicates[i + 1]) {
+        groups.push(group);
         modifiedTasks.push(...modifyTasksForGroups(groups, modifiedTasks));
+
+        return {
+          groups,
+          connectors
+        }; 
+      }
+
+      if (tasks.length > groupsWithoutDuplicates[i + 1][1].length) {
+        connectors.push(group);
+      } else {
+        groups.push(group);
       }
 
       return {
@@ -237,6 +247,8 @@ const modifyTasks = tasks => {
       connectors
     };
   }, state);
+
+  console.log(test);
 
   return modifiedTasks;
 };

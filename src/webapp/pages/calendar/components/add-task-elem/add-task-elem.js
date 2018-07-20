@@ -33,10 +33,8 @@ export class AddTaskElem extends Component {
           duration
         } 
       });
-      this.setState({ 
-        shouldShowError: false,
-        errorMessage: '' 
-      });
+
+      this.props.closeAddTaskForm(e);
     } else {
       this.setState({ 
         shouldShowError: true,
